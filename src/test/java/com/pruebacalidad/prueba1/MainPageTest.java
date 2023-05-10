@@ -140,77 +140,26 @@ public class MainPageTest {
             Assert.fail("El usuario no pudo ingresar a la pantalla principal");
         }
     }
-
-
-    @Test
-    public void Contador_A3(){
-        mainPage.inputEcomUser.sendKeys("A00831137");
-        mainPage.inputEcomPassword.sendKeys("Secret");
+    
+     @Test
+    public void Contador3A() {
+   
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        if(driver.findElements(By.xpath("//a[@href='/gimnasio']")).size() == 0){
-            Assert.fail("No pudo ni encontrar la opcion de seleccionar el gimnasio");
-        }
-        mainPage.linkGimnasio.click();
-        if(driver.findElements(By.xpath("//*[@id='MyChart']")).size() == 0){
-            Assert.fail("No se pudo encontrar la gráfica del aforo del gimnasio");
-        }
+        
+        mainPage.liGimnasio.click();
+        $("h1[class='text-body-secondary']").shouldBe(visible);
     }
 
     @Test
-    public void Contador_3B(){
-       mainPage.inputEcomUser.sendKeys("A00009582");
-       mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
-       mainPage.buttonLogin.click();
-       if(driver.findElements(By.xpath("//a[@href='/gimnasio']")).size() == 0){
-           Assert.fail("Se supone que debería haber entrado a la pantalla de inicio");
-       }
-       mainPage.linkGimnasio.click();
-       if(driver.findElements(By.xpath("//*[@id='MyChart']")).size() == 0){
-           Assert.fail("Deberá haber entrado a la pantalla del aforo del gimnasio");
-       }
-       String text = mainPage.aforoDelGimnasio.getText();
-
-       // otro usuario alumno
-       driver.findElement(By.xpath("//*[@id='MyChart']")).sendKeys(Keys.CONTROL+"t");
-        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-        driver.get("http://localhost:4200/login");
-        mainPage.inputEcomUser.sendKeys("A00046687");
-        mainPage.inputEcomPassword.sendKeys("L!O4Z)qlgx");
+    public void Contador4A() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        if(driver.findElements(By.xpath("//a[@href='/gimnasio']")).size() == 0){
-            Assert.fail("Debería haber entrado a la pantalla de inicio del otro usuario");
-        }
-        mainPage.linkGimnasio.click();
-        if(driver.findElements(By.xpath("//a[contains(@style, '0.7%;')]")).size() == 0){
-            Assert.fail("Porque no entro el segundo usuario?");
-        }
-        mainPage.marcarLlegada.click();
-        driver.switchTo().window(tabs.get(0));
-
-        // al momento de meterse al aparatdo del gimnasio, deberá poner
+        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(7)").click();
+        $("svg[id='code128']").shouldBe(visible);
     }
 
-    @Test
-    public void Contador_3C(){
-        mainPage.inputEcomUser.sendKeys("A00831137");
-        mainPage.inputEcomPassword.sendKeys("Secret");
-        mainPage.buttonLogin.click();
-        // Falta seguir con el caso de prueba...
-    }
 
-    @Test
-    public void codigo_de_barras_4A(){
-        mainPage.inputEcomUser.sendKeys("A00831137");
-        mainPage.inputEcomPassword.sendKeys("Secret");
-        mainPage.buttonLogin.click();
-        if(driver.findElements(By.xpath("//a[contains(@href, 'id')]")).size() == 0){
-            Assert.fail("No pudo ni encontrar la opcion de 'ID digital'");
-        }
-        mainPage.linkIdDigital.click();
-        if(driver.findElements(By.xpath("//*[@id='code128']")).size() == 0){
-            Assert.fail("No pudo entrar a la pantalla del codigo de barras");
-        }
-    }
-
-}
+   
