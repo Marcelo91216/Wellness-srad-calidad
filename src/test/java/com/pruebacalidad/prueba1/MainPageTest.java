@@ -148,7 +148,7 @@ public class MainPageTest {
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
         
-        mainPage.liGimnasio.click();
+        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(2)").click();
         $("h1[class='text-body-secondary']").shouldBe(visible);
     }
 
