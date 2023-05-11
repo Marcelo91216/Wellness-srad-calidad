@@ -160,6 +160,87 @@ public class MainPageTest {
         $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(7)").click();
         $("svg[id='code128']").shouldBe(visible);
     }
+    
+     @Test
+    public void VerÁreaDeportiva7A() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
+        $("html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1)").shouldBe(visible);
+    }
+
+    @Test
+    public void VerÁreaDeportiva7B() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
+        $("html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div > div > button").shouldBe(disabled);
+    }
+
+    @Test
+    public void VerHorariosÁreaDeportiva8A() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
+        $("button[routerlink='/esports']").click();
+        $("html > body > app-root > app-esports > div:nth-of-type(3)").shouldBe(visible);
+    }
+
+    @Test
+    public void VerHorariosÁreaDeportiva8B() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
+        $("button[routerlink='/esports']").click();
+        $("html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button").shouldBe(disabled);
+    }
+
+    @Test
+    public void ReservaÁreaDeportiva9A() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
+        $("button[routerlink='/esports']").click();
+        $("html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button").click();
+        $("input[id='reserve']").shouldBe(visible);
+    }
+
+    @Test
+    public void ReservaÁreaDeportiva9B() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
+        $("button[routerlink='/esports']").click();
+        $("html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button").click();
+        $("button[id='btn2']").click();
+        $("div[class='modal-body']").shouldBe(visible);
+    }
+
+    @Test
+    public void VerReservaciones10A() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        $("a[ng-reflect-router-link='reservas']").click();
+        $("div[class*='col-md-8']").shouldBe(visible);
+
+    }
+
+    @Test
+    public void VerReservaciones10B() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        $("a[ng-reflect-router-link='reservas']").click();
+        $("h4[class='text-center']").shouldBe(visible);
+
+    }
 
 
    
