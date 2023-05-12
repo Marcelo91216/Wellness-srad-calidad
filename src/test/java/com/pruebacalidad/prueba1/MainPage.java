@@ -40,7 +40,18 @@ public class MainPage {
     @FindBy(xpath = "//h1[contains(@style, '18%;')]")
     public WebElement aforoDelGimnasio;
 
-    
+
+
+    @FindBy(xpath = "//*[@id='marcarSalida']")
+    public WebElement buttonMarcarSalida;
+
+    @FindBy(xpath = "//h1[contains(@style, '18%;')]")
+    public WebElement aforoActualYTotal;
+
+    @FindBy(css = "button[id='marcarLlegada']")
+    public WebElement buttonMarcarLlegada;
+
+
 
     public MainPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 }

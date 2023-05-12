@@ -15,6 +15,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.io.Console;
 import java.time.Duration;
 import java.util.ArrayList;
 
@@ -42,7 +43,9 @@ public class MainPageTest {
     }
 
     @AfterMethod
-    public void tearDown() {driver.quit();}
+    public void tearDown() {
+        driver.quit();
+    }
 
     @Test
     public void login_1A() {
@@ -50,106 +53,119 @@ public class MainPageTest {
         mainPage.inputEcomPassword.sendKeys("Z)2W&G+Lxc");
         mainPage.buttonLogin.click();
         if (driver.findElements(By.xpath(
-                "//div[@class='container-fluid']")).size() == 0){
+                "//div[@class='container-fluid']")).size() == 0) {
             Assert.fail("El usuario no pudo ingresar a la pantalla principal");
         }
     }
 
     @Test
-    public void login_1B(){
-        if (mainPage.buttonLogin.isEnabled()){
+    public void login_1B() {
+        if (mainPage.buttonLogin.isEnabled()) {
             Assert.fail("No debería poder entrar si no lleno nada");
         }
     }
 
     @Test
-    public void login_1C(){
+    public void login_1C() {
         mainPage.inputEcomUser.sendKeys("A00495404");
         mainPage.inputEcomPassword.sendKeys("suaje"); // Incorrecto
         mainPage.buttonLogin.click();
-        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0){
+        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0) {
             Assert.fail("La contraseña está mal, debería dar mensaje de error");
         }
     }
 
     @Test
-    public void login_1D(){
+    public void login_1D() {
         mainPage.inputEcomUser.sendKeys("A01831137"); // Incorrecto
         mainPage.inputEcomPassword.sendKeys("Z)2W&G+Lxc");
         mainPage.buttonLogin.click();
-        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0){
+        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0) {
             Assert.fail("El nombre de usuario está mal y no debería entrar sino dar error");
         }
     }
 
     @Test
-    public void login_1E(){
+    public void login_1E() {
         // Ambas incorrectas
         mainPage.inputEcomUser.sendKeys("A01831137");
         mainPage.inputEcomPassword.sendKeys("secret2345");
         mainPage.buttonLogin.click();
-        if(driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0){
+        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0) {
             Assert.fail("Ambos datos usuario y contraseña están mal, no debería ingresar sino dar error");
         }
     }
 
     @Test
-    public void loginAdmin_2A(){
+    public void loginAdmin_2A() {
         mainPage.inputEcomUser.sendKeys("A00939520");
         mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
         mainPage.buttonLogin.click();
         // Cambiar a un elemento de la pantalla principal del admin
-        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() == 0){
+        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() == 0) {
             Assert.fail("El administrador debería haber entrado");
         }
     }
 
     @Test
-    public void loginAdmin_2B(){
-        if (mainPage.buttonLogin.isEnabled()){
+    public void loginAdmin_2B() {
+        if (mainPage.buttonLogin.isEnabled()) {
             Assert.fail("El usuario no pudo ingresar a la pantalla principal");
         }
     }
 
     @Test
-    public void loginAdmin_2C(){
+    public void loginAdmin_2C() {
         mainPage.inputEcomUser.sendKeys("A00939520");
         mainPage.inputEcomPassword.sendKeys("1234");
         mainPage.buttonLogin.click();
-        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0){
+        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0) {
             Assert.fail("El usuario no pudo ingresar a la pantalla principal");
         }
     }
 
     @Test
-    public void loginAdmin_2D(){
+    public void loginAdmin_2D() {
         mainPage.inputEcomUser.sendKeys("A90102030");
         mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
         mainPage.buttonLogin.click();
-        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0){
+        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0) {
             Assert.fail("El usuario no pudo ingresar a la pantalla principal");
         }
     }
 
     @Test
-    public void loginAdmin_2E(){
+    public void loginAdmin_2E() {
         mainPage.inputEcomUser.sendKeys("A90102030");
         mainPage.inputEcomPassword.sendKeys("1234");
         mainPage.buttonLogin.click();
-        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0){
+        if (driver.findElements(By.xpath("//div[@class='container-fluid']")).size() != 0) {
             Assert.fail("El usuario no pudo ingresar a la pantalla principal");
         }
     }
-    
-     @Test
+
+    @Test
     public void Contador3A() {
-   
+
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        
+
         $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(2)").click();
         $("h1[class='text-body-secondary']").shouldBe(visible);
+    }
+
+    @Test
+    public void Contador3B(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        mainPage.linkGimnasio.click();
+        int actual = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
+        mainPage.buttonMarcarLlegada.click();
+        int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
+        Assert.assertEquals(nuevo, actual+1, "Debería de dar el mismo valor en ambos");
+        mainPage.buttonMarcarSalida.click();
     }
 
     @Test
@@ -160,8 +176,8 @@ public class MainPageTest {
         $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(7)").click();
         $("svg[id='code128']").shouldBe(visible);
     }
-    
-     @Test
+
+    @Test
     public void VerÁreaDeportiva7A() {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
@@ -241,6 +257,7 @@ public class MainPageTest {
         $("h4[class='text-center']").shouldBe(visible);
 
     }
+}
 
 
    
