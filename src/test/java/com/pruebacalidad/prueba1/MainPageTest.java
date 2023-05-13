@@ -12,10 +12,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 //import com.codeborne.selenide.logevents.SelenideLogger;
 //import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.io.Console;
+import java.security.spec.ECField;
 import java.time.Duration;
 import java.util.ArrayList;
 
@@ -36,7 +40,7 @@ public class MainPageTest {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("http://localhost:4200/login");
 
         mainPage = new MainPage(driver);
@@ -161,6 +165,9 @@ public class MainPageTest {
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
         mainPage.linkGimnasio.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
+        WebElement elemento = wait.until(ExpectedConditions.visibilityOf($(By.xpath("//*[@id='aforo_data']"))));
+        elemento.isEnabled();
         int actual = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
         mainPage.buttonMarcarLlegada.click();
         int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
