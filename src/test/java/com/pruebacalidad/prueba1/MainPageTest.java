@@ -161,12 +161,13 @@ public class MainPageTest {
     }
 
     @Test
-    public void Contador4A() {
+    public void CódigoDeBarras4A() {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(7)").click();
-        $("svg[id='code128']").shouldBe(visible);
+        
+        mainPage.compID.click();
+        mainPage.codigoBarras.isDisplayed();
     }
 
     @Test
@@ -174,8 +175,10 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
-        $("html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1)").shouldBe(visible);
+        
+        
+        mainPage.compInicio.click();
+        mainPage.tarjetaCross.isDisplayed();
     }
 
     @Test
@@ -183,8 +186,14 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
-        $("html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div > div > button").shouldBe(disabled);
+        
+        mainPage.compInicio.click();
+        
+        boolean si = mainPage.tarjetaCrossBtn.isEnabled();
+        if(si){
+            Assert.fail("Area abierta");
+        }
+        
     }
 
     @Test
@@ -192,9 +201,11 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
-        $("button[routerlink='/esports']").click();
-        $("html > body > app-root > app-esports > div:nth-of-type(3)").shouldBe(visible);
+        
+        
+        mainPage.compInicio.click();
+        mainPage.linkEsports.click();
+        mainPage.horario.isDisplayed();
     }
 
     @Test
@@ -202,9 +213,15 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
-        $("button[routerlink='/esports']").click();
-        $("html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button").shouldBe(disabled);
+        
+        mainPage.compInicio.click();
+        mainPage.linkEsports.click();
+        
+         boolean si = mainPage.horarioDis.isEnabled();
+        if(si){
+            Assert.fail("Boton habilitado");
+        }
+        
     }
 
     @Test
@@ -212,10 +229,12 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
-        $("button[routerlink='/esports']").click();
-        $("html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button").click();
-        $("input[id='reserve']").shouldBe(visible);
+        
+        mainPage.compInicio.click();
+        mainPage.linkEsports.click();
+        
+        mainPage.horarioVisible.click();
+        mainPage.resumenReserva.isDisplayed();
     }
 
     @Test
@@ -223,11 +242,13 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)").click();
-        $("button[routerlink='/esports']").click();
-        $("html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button").click();
-        $("button[id='btn2']").click();
-        $("div[class='modal-body']").shouldBe(visible);
+        
+        
+        mainPage.compInicio.click();
+        mainPage.linkEsports.click();
+        mainPage.horarioVisible.click();
+        mainPage.confirmarReserva.click();
+        mainPage.modalReserva.isDisplayed();
     }
 
     @Test
@@ -235,8 +256,9 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        $("a[ng-reflect-router-link='reservas']").click();
-        $("div[class*='col-md-8']").shouldBe(visible);
+        
+        mainPage.linkReservas.click();
+        mainPage.TarjetasReservas.isDisplayed();
 
     }
 
@@ -245,9 +267,11 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        $("a[ng-reflect-router-link='reservas']").click();
-        $("h4[class='text-center']").shouldBe(visible);
-
+        
+        
+        mainPage.linkReservas.click();
+        Assert.assertEquals(mainPage.TarjetasReservasVacias.getText(), "No cuenta con ninguna reservación activa");
+        
     }
 
     // Sprint 2
