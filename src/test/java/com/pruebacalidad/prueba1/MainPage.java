@@ -56,6 +56,49 @@ public class MainPage {
 
     @FindBy(css = "h1[class='text-body-secondary']")
     public WebElement Contador;
+    
+    @FindBy(css = "html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(7)")
+    public WebElement compID;
+    
+    @FindBy(css = "svg[id='code128']")
+    public WebElement codigoBarras;
+    
+    @FindBy(css = "svg[id='html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)")
+    public WebElement compInicio;
+    
+    @FindBy(css = "html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1)")
+    public WebElement tarjetaCross;
+    
+    @FindBy(css = "html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div > div > button")
+    public WebElement tarjetaCrossBtn;
+    
+    @FindBy(css = "button[routerlink='/esports']")
+    public WebElement linkEsports;
+    
+    @FindBy(css = "html > body > app-root > app-esports > div:nth-of-type(3)")
+    public WebElement horario;
+    
+    @FindBy(css = "html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button")
+    public WebElement horarioDis;
+    
+    @FindBy(css = "html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button")
+    public WebElement horarioVisible;
+    
+    
+    @FindBy(css = "input[id='reserve']")
+    public WebElement resumenReserva;
+    
+    
+    @FindBy(css = "button[id='btn2']")
+    public WebElement confirmarReserva;
+    
+ 
+    @FindBy(css = "div[class='modal-body']")
+    public WebElement modalReserva;
+    
+    
+    
+    
 
     public MainPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 }
