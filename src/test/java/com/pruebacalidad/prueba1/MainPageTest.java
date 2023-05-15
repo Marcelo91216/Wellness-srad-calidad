@@ -41,7 +41,7 @@ public class MainPageTest {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         driver.get("http://localhost:4200/login");
 
         mainPage = new MainPage(driver);
@@ -273,6 +273,35 @@ public class MainPageTest {
         int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
         Assert.assertEquals(nuevo, actual+1, "Debería de dar el mismo valor en ambos");
         mainPage.buttonMarcarSalida.click();
+    }
+
+    @Test
+    public void Contador3C(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        mainPage.linkGimnasio.click();
+        mainPage.buttonMarcarLlegada.click();
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        int ant = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
+        mainPage.buttonMarcarSalida.click();
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
+        Assert.assertEquals(nuevo, ant-1, "Debería de dar el mismo valor en ambos");
     }
 }
 
