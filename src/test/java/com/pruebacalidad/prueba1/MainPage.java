@@ -96,6 +96,15 @@ public class MainPage {
     @FindBy(css = "div[class='modal-body']")
     public WebElement modalReserva;
     
+    @FindBy(css = "a[ng-reflect-router-link='reservas']")
+    public WebElement linkReservas;
+    
+    @FindBy(css = "div[class*='col-md-8']")
+    public WebElement TarjetasReservas;
+    
+     @FindBy(css = "h4[class='text-center']")
+    public WebElement TarjetasReservasVacias;
+    
     
     
     
