@@ -22,6 +22,7 @@ import java.io.Console;
 import java.security.spec.ECField;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Condition.*;
 import static org.testng.Assert.*;
@@ -155,24 +156,8 @@ public class MainPageTest {
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
 
-        $("html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(2)").click();
-        $("h1[class='text-body-secondary']").shouldBe(visible);
-    }
-
-    @Test
-    public void Contador3B(){
-        mainPage.inputEcomUser.sendKeys("A00009582");
-        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
-        mainPage.buttonLogin.click();
-        mainPage.linkGimnasio.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2000));
-        WebElement elemento = wait.until(ExpectedConditions.visibilityOf($(By.xpath("//*[@id='aforo_data']"))));
-        elemento.isEnabled();
-        int actual = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
-        mainPage.buttonMarcarLlegada.click();
-        int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
-        Assert.assertEquals(nuevo, actual+1, "Debería de dar el mismo valor en ambos");
-        mainPage.buttonMarcarSalida.click();
+        mainPage.compGimnasio.click();
+        mainPage.Contador.isDisplayed();
     }
 
     @Test
@@ -263,6 +248,31 @@ public class MainPageTest {
         $("a[ng-reflect-router-link='reservas']").click();
         $("h4[class='text-center']").shouldBe(visible);
 
+    }
+
+    // Sprint 2
+    @Test
+    public void Contador3B(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        mainPage.linkGimnasio.click();
+        synchronized (this)
+        {
+            try
+            {
+                wait(1000);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        int actual = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
+        mainPage.buttonMarcarLlegada.click();
+        int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
+        Assert.assertEquals(nuevo, actual+1, "Debería de dar el mismo valor en ambos");
+        mainPage.buttonMarcarSalida.click();
     }
 }
 

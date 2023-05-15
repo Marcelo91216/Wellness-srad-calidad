@@ -51,7 +51,11 @@ public class MainPage {
     @FindBy(css = "button[id='marcarLlegada']")
     public WebElement buttonMarcarLlegada;
 
+    @FindBy(css = "html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(2)")
+    public WebElement compGimnasio;
 
+    @FindBy(css = "h1[class='text-body-secondary']")
+    public WebElement Contador;
 
     public MainPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 }
