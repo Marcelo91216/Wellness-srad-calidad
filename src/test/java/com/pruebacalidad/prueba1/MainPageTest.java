@@ -303,6 +303,41 @@ public class MainPageTest {
         int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
         Assert.assertEquals(nuevo, ant-1, "Debería de dar el mismo valor en ambos");
     }
+
+    @Test
+    public void ajusteAreaDeportiva14A(){
+        mainPage.inputEcomUser.sendKeys("A00939520");
+        mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonEditarAforo.click();
+
+
+    }
+
+    @Test
+    public void ajusteAreaDeportiva14B(){
+        mainPage.inputEcomUser.sendKeys("A00939520");
+        mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonEditarAforo.click();
+
+        mainPage.inputNuevoAforo.sendKeys("190");
+        mainPage.inputStart.sendKeys("17/05/23");
+        mainPage.inputStart2.sendKeys("20/05/23");
+        mainPage.input.sendKeys("Mantenimiento");
+    }
+
+    @Test
+    public void verEntrenadores15A(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonReservar.click();
+
+    }
 }
 
 

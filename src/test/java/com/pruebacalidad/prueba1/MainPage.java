@@ -63,7 +63,7 @@ public class MainPage {
     @FindBy(css = "svg[id='code128']")
     public WebElement codigoBarras;
     
-    @FindBy(css = "svg[id='html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)")
+    @FindBy(css = "svg[id='html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)']")
     public WebElement compInicio;
     
     @FindBy(css = "html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1)")
@@ -95,10 +95,32 @@ public class MainPage {
  
     @FindBy(css = "div[class='modal-body']")
     public WebElement modalReserva;
+
+
+    @FindBy(css = "button[routerlink='/entrenadores']")
+    public WebElement buttonReservar;
+
+
+    @FindBy(css = "button[routerlink='/editarAforo']")
+    public WebElement buttonEditarAforo;
+
+
+    @FindBy(css = "input[id='nuevoAforo']")
+    public WebElement inputNuevoAforo;
+
+    @FindBy(css = "div[class^='col-md-6'] input[id='start']")
+    public WebElement inputStart;
+
+    @FindBy(css = "div[class^='col-md-5'] input[id='start']")
+    public WebElement inputStart2;
+
+    @FindBy(css = "input[class^='mt-4']")
+    public WebElement input;
+
     
+
     
-    
-    
+
 
     public MainPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 }
