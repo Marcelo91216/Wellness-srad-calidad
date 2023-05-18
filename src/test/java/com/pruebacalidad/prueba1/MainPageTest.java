@@ -304,6 +304,7 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
+
         mainPage.linkGimnasio.click();
         mainPage.buttonMarcarLlegada.click();
         synchronized (this){
@@ -327,7 +328,75 @@ public class MainPageTest {
         int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
         Assert.assertEquals(nuevo, ant-1, "Debería de dar el mismo valor en ambos");
     }
+
+    @Test
+    public void cerrarAreaDeportiva12A() {
+
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+        driver.get("http://localhost:4200/inicioAdmin");
+        mainPage.btnCerrarArea.click();
+        mainPage.calendarioInicio.click();
+        mainPage.calendarioFinal.click();
+        mainPage.cuadroTextoMotivoCierre.sendKeys("Mantenimiento");
+        mainPage.getBtnCerrarArea.click();
+        Assert.assertEquals(mainPage.ModalConfirmarCerrarArea.getText(),"Area cerrada correctamente!");
+    }
+
+    @Test
+    public void cerrarAreaDeportiva12B() {
+
+        driver.get("http://localhost:4200/inicioAdmin");
+        mainPage.btnCerrarArea.click();
+        mainPage.calendarioInicio.click();
+        mainPage.calendarioFinal.click();
+        mainPage.cuadroTextoMotivoCierre.sendKeys("Mantenimiento");
+        mainPage.getBtnCerrarArea.click();
+        Assert.assertEquals(mainPage.ModalConfirmarCerrarArea.getText(),"Area cerrada correctamente!");
+
+        driver.get("http://localhost:4200/inicio");
+
+        mainPage.TarjetaAreaCerrada.isDisplayed();
+
+        Assert.assertEquals(mainPage.btnCerrado.getText(),"Cerrado");
+
+    }
+
+
+    @Test
+    public void abrirAreaDeportiva13A() {
+        driver.get("http://localhost:4200/inicioAdmin");
+        mainPage.btnAbrirArea.click();
+        Assert.assertEquals(mainPage.modalConfirmacionAbrir.getText(),"Área abierta correctamente!");
+
+    }
+
+
+    @Test
+    public void abrirAreaDeportiva13B() {
+        driver.get("http://localhost:4200/inicioAdmin");
+        mainPage.btnAbrirArea.click();
+        Assert.assertEquals(mainPage.modalConfirmacionAbrir.getText(),"Área abierta correctamente!");
+        driver.get("http://localhost:4200/inicio");
+        mainPage.btnArena.isEnabled();
+
+    }
+
+
+
+
+
+
+
+
+
+
 }
+
+
+
 
 
    

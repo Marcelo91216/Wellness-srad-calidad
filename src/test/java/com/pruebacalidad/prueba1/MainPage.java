@@ -63,7 +63,7 @@ public class MainPage {
     @FindBy(css = "svg[id='code128']")
     public WebElement codigoBarras;
     
-    @FindBy(css = "svg[id='html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)")
+    @FindBy(css = "svg[id='html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)']")
     public WebElement compInicio;
     
     @FindBy(css = "html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1)")
@@ -104,6 +104,50 @@ public class MainPage {
     
      @FindBy(css = "h4[class='text-center']")
     public WebElement TarjetasReservasVacias;
+
+    @FindBy(css = "html > body > app-root > app-inicio-admin > div:nth-of-type(3) > div > div > div > div:nth-of-type(6) > button")
+    public WebElement btnCerrarArea;
+
+    @FindBy(css = "div[class^='col-md-6'] input[id='start']")
+    public WebElement calendarioInicio;
+
+    @FindBy(css = "div[class^='col-md-5'] input[id='start']")
+    public WebElement calendarioFinal;
+
+    @FindBy(css = "input[class^='mt-4']")
+    public WebElement cuadroTextoMotivoCierre;
+
+    @FindBy(css = "button[class*='btn-success']")
+    public WebElement getBtnCerrarArea;
+
+    @FindBy(css = "div[class='modal-body']")
+    public WebElement ModalConfirmarCerrarArea;
+
+    @FindBy(css = "div[class$='img-bannerCerrado'] div[class='card-img-overlay']")
+    public WebElement TarjetaAreaCerrada;
+
+    @FindBy(css = "html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div > div > button")
+    public WebElement btnCerrado;
+
+    @FindBy(css = "html > body > app-root > app-inicio-admin > div:nth-of-type(6) > div > div > div > div:nth-of-type(6) > button")
+    public WebElement btnAbrirArea;
+
+    @FindBy(css = "div[class='modal-body']")
+    public WebElement modalConfirmacionAbrir;
+
+    @FindBy(css = "button[routerlink='/arena']")
+    public WebElement btnArena;
+
+
+
+
+
+
+
+
+
+
+
     
     
     
