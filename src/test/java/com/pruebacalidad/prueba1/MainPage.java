@@ -101,8 +101,8 @@ public class MainPage {
     public WebElement buttonReservar;
 
 
-    @FindBy(css = "button[routerlink='/editarAforo']")
-    public WebElement buttonEditarAforo;
+    @FindBy(css = "html > body > app-root > app-inicio-admin > div:nth-of-type(3) > div > div > div > div:nth-of-type(5) > button")
+    public WebElement buttonEstadSticas;
 
 
     @FindBy(css = "input[id='nuevoAforo']")
@@ -117,10 +117,14 @@ public class MainPage {
     @FindBy(css = "input[class^='mt-4']")
     public WebElement input;
 
-    
+
+
+
+
+
+
 
     
-
 
     public MainPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 }

@@ -306,22 +306,21 @@ public class MainPageTest {
 
     @Test
     public void ajusteAreaDeportiva14A(){
-        mainPage.inputEcomUser.sendKeys("A00939520");
-        mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
+        mainPage.inputEcomUser.sendKeys("A00021564");
+        mainPage.inputEcomPassword.sendKeys("D&a#1Wqv^i");
         mainPage.buttonLogin.click();
 
-        mainPage.buttonEditarAforo.click();
-
+        mainPage.buttonEstadSticas.click();
 
     }
 
     @Test
     public void ajusteAreaDeportiva14B(){
-        mainPage.inputEcomUser.sendKeys("A00939520");
-        mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
+        mainPage.inputEcomUser.sendKeys("A00021564");
+        mainPage.inputEcomPassword.sendKeys("D&a#1Wqv^i");
         mainPage.buttonLogin.click();
 
-        mainPage.buttonEditarAforo.click();
+        mainPage.buttonEstadSticas.click();
 
         mainPage.inputNuevoAforo.sendKeys("190");
         mainPage.inputStart.sendKeys("17/05/23");
@@ -331,11 +330,16 @@ public class MainPageTest {
 
     @Test
     public void verEntrenadores15A(){
-        mainPage.inputEcomUser.sendKeys("A00009582");
-        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
         mainPage.buttonLogin.click();
 
         mainPage.buttonReservar.click();
+
+    }
+
+    @Test
+    public void faker(){
 
     }
 }
