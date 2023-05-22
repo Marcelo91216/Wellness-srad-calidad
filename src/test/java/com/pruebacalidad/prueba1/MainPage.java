@@ -106,6 +106,7 @@ public class MainPage {
     public WebElement TarjetasReservasVacias;
 
     @FindBy(css = "html > body > app-root > app-inicio-admin > div:nth-of-type(3) > div > div > div > div:nth-of-type(6) > button")
+
     public WebElement btnCerrarArea;
 
     @FindBy(css = "div[class^='col-md-6'] input[id='start']")
@@ -139,6 +140,38 @@ public class MainPage {
     public WebElement btnArena;
 
 
+    @FindBy(css = "button[class$='btn-primary']")
+    public WebElement okModal;
+
+    @FindBy(css = "button[id='btn']")
+    public WebElement cerrarSession;
+
+
+    @FindBy(css = "button[routerlink='/entrenadores']")
+    public WebElement SessionEntrenador;
+
+    @FindBy(css = "html > body > app-root > app-citasentrenador > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(3) > button")
+    public WebElement ReservarEntrenador;
+
+    @FindBy(css = "div[class*='border-gray']")
+    public WebElement DisponibilidadEntrenador;
+    @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button")
+    public WebElement btndis;
+
+    @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button")
+    public WebElement btnReservarEnt;
+
+    @FindBy(css = "button[id='btn2']")
+    public WebElement btnReservarEntM;
+
+    @FindBy(css = "div[class='modal-body']")
+    public WebElement ConfReservar;
+
+    @FindBy(css = "div[class^='col-md-5']")
+    public WebElement Especialidad;
+
+    @FindBy(css = "div[class^='col-md-7']")
+    public WebElement Resenas;
 
 
 
@@ -148,10 +181,24 @@ public class MainPage {
 
 
 
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public MainPage(WebDriver driver) {PageFactory.initElements(driver, this);}
 }
