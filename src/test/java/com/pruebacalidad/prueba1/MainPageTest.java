@@ -325,7 +325,9 @@ public class MainPageTest {
         mainPage.inputNuevoAforo.sendKeys("190");
         mainPage.inputStart.sendKeys("17/05/23");
         mainPage.inputStart2.sendKeys("20/05/23");
-        mainPage.input.sendKeys("Mantenimiento");
+        mainPage.buttonRazon.sendKeys("Mantenimiento");
+
+        mainPage.guardarAforo.click();
     }
 
     @Test
@@ -339,7 +341,93 @@ public class MainPageTest {
     }
 
     @Test
-    public void faker(){
+    public void verEntrenadores15B(){
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonReservar.click();
+
+        // Revisar "pero no debería haber disponibles"
+
+    }
+
+    @Test
+    public void verDisponibilidadEntrenador16A(){
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonReservar.click();
+
+        mainPage.buttonReservarEntrenador.click();
+
+    }
+
+
+
+    @Test
+    public void verDisponibilidadEntrenador16B(){
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonReservar.click();
+        mainPage.buttonReservarEntrenador.click();
+
+
+
+    }
+
+    @Test
+    public void verDisponibilidadEntrenador17A(){
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonReservar.click();
+        mainPage.buttonReservarEntrenador.click();
+
+        mainPage.buttonHorarioSelect.click();
+
+        mainPage.buttonHorarioConfirm.click();
+
+        mainPage.buttonModalHorario.click();
+
+
+    }
+
+    @Test
+    public void verDisponibilidadEntrenador17B(){
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
+        mainPage.buttonLogin.click();
+
+
+
+    }
+
+    @Test
+    public void verNutriologosDisponibles18A(){
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonNutriologo.click();
+        mainPage.buttonReservarNutriologo.click();
+
+
+    }
+
+    @Test
+    public void verNutriologosDisponibles18B(){
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonNutriologo.click();
+        // Revisar "pero no debería haber disponibles"
+
 
     }
 }

@@ -101,6 +101,7 @@ public class MainPage {
     public WebElement buttonReservar;
 
 
+
     @FindBy(css = "html > body > app-root > app-inicio-admin > div:nth-of-type(3) > div > div > div > div:nth-of-type(5) > button")
     public WebElement buttonEstadSticas;
 
@@ -115,10 +116,35 @@ public class MainPage {
     public WebElement inputStart2;
 
     @FindBy(css = "input[class^='mt-4']")
-    public WebElement input;
+    public WebElement buttonRazon;
+
+    @FindBy(css= "button[class*='btn-success']")
+    public WebElement guardarAforo;
 
 
 
+    @FindBy(css = "html > body > app-root > app-citasentrenador > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(3) > button")
+    public WebElement buttonReservarEntrenador;
+
+    @FindBy(css = "button[routerlink='/nutriologos']")
+    public WebElement buttonNutriologo;
+
+    @FindBy(css = "html > body > app-root > app-citasnutriologo > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(3) > button")
+    public WebElement buttonReservarNutriologo;
+
+    @FindBy(xpath = "/html/body/app-root/app-horario-asesor/div[3]/div/table/tbody/tr[1]/td[1]/button")
+    public WebElement buttonHorarioSelect;
+
+    @FindBy(xpath ="//*[@id='btn2']")
+    public WebElement buttonHorarioConfirm;
+
+    @FindBy(css = "div[class='modal-footer'] button[class*='btn-primary']")
+    public WebElement buttonModalHorario;
+
+
+    
+
+    
 
 
 
