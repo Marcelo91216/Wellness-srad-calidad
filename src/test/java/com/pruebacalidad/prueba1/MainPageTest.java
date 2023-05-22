@@ -435,6 +435,14 @@ public class MainPageTest {
         }
 
         mainPage.btnAbrirArea.click();
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }
         Assert.assertEquals(mainPage.modalConfirmacionAbrir.getText(),"Área abierta correctamente!");
         mainPage.okModal.click();
         mainPage.cerrarSession.click();
