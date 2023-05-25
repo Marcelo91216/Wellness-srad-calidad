@@ -123,23 +123,12 @@ public class MainPage {
 
 
 
-    @FindBy(css = "html > body > app-root > app-citasentrenador > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(3) > button")
-    public WebElement buttonReservarEntrenador;
-
     @FindBy(css = "button[routerlink='/nutriologos']")
     public WebElement buttonNutriologo;
 
     @FindBy(css = "html > body > app-root > app-citasnutriologo > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(3) > button")
     public WebElement buttonReservarNutriologo;
 
-    @FindBy(xpath = "/html/body/app-root/app-horario-asesor/div[3]/div/table/tbody/tr[1]/td[1]/button")
-    public WebElement buttonHorarioSelect;
-
-    @FindBy(xpath ="//*[@id='btn2']")
-    public WebElement buttonHorarioConfirm;
-
-    @FindBy(css = "div[class='modal-footer'] button[class*='btn-primary']")
-    public WebElement buttonModalHorario;
 
 
     

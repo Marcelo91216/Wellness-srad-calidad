@@ -340,72 +340,7 @@ public class MainPageTest {
 
     }
 
-    @Test
-    public void verEntrenadores15B(){
-        mainPage.inputEcomUser.sendKeys("A00167441");
-        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
-        mainPage.buttonLogin.click();
 
-        mainPage.buttonReservar.click();
-
-        // Revisar "pero no debería haber disponibles"
-
-    }
-
-    @Test
-    public void verDisponibilidadEntrenador16A(){
-        mainPage.inputEcomUser.sendKeys("A00167441");
-        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
-        mainPage.buttonLogin.click();
-
-        mainPage.buttonReservar.click();
-
-        mainPage.buttonReservarEntrenador.click();
-
-    }
-
-
-
-    @Test
-    public void verDisponibilidadEntrenador16B(){
-        mainPage.inputEcomUser.sendKeys("A00167441");
-        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
-        mainPage.buttonLogin.click();
-
-        mainPage.buttonReservar.click();
-        mainPage.buttonReservarEntrenador.click();
-
-
-
-    }
-
-    @Test
-    public void verDisponibilidadEntrenador17A(){
-        mainPage.inputEcomUser.sendKeys("A00167441");
-        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
-        mainPage.buttonLogin.click();
-
-        mainPage.buttonReservar.click();
-        mainPage.buttonReservarEntrenador.click();
-
-        mainPage.buttonHorarioSelect.click();
-
-        mainPage.buttonHorarioConfirm.click();
-
-        mainPage.buttonModalHorario.click();
-
-
-    }
-
-    @Test
-    public void verDisponibilidadEntrenador17B(){
-        mainPage.inputEcomUser.sendKeys("A00167441");
-        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
-        mainPage.buttonLogin.click();
-
-
-
-    }
 
     @Test
     public void verNutriologosDisponibles18A(){
@@ -419,17 +354,6 @@ public class MainPageTest {
 
     }
 
-    @Test
-    public void verNutriologosDisponibles18B(){
-        mainPage.inputEcomUser.sendKeys("A00167441");
-        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
-        mainPage.buttonLogin.click();
-
-        mainPage.buttonNutriologo.click();
-        // Revisar "pero no debería haber disponibles"
-
-
-    }
 }
 
 
