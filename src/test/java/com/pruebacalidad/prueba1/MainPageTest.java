@@ -354,6 +354,33 @@ public class MainPageTest {
 
     }
 
+    @Test
+    public void visualizarDisponibilidadNutriologo19A(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        mainPage.buttonNutriologo.click();
+        mainPage.buttonReservarNutriologo.click();
+
+        // calendar is display ?
+        mainPage.calendarioNutriologo.isDisplayed();
+    }
+
+    @Test
+    public void visualizarDisponibilidadNutriologo19B(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        mainPage.buttonNutriologo.click();
+        mainPage.buttonReservarNutriologo.click();
+
+        // Boton esta enable?
+
+        if (mainPage.buttonHorarioNutri.isEnabled()) {
+            Assert.fail("El horario no esta disponible");
+        }
+    }
+
 }
 
 

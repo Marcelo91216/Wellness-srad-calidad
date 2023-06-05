@@ -126,8 +126,16 @@ public class MainPage {
     @FindBy(css = "button[routerlink='/nutriologos']")
     public WebElement buttonNutriologo;
 
-    @FindBy(css = "html > body > app-root > app-citasnutriologo > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(3) > button")
+    @FindBy(css = "html > body > app-root > app-citasnutriologo > div > div:nth-of-type(1) > div > div > div > div > div:nth-of-type(3) > button")
     public WebElement buttonReservarNutriologo;
+
+    @FindBy(css = "div[class*='border-gray']")
+    public WebElement calendarioNutriologo;
+
+    @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button")
+    public WebElement buttonHorarioNutri;
+
+
 
 
 
