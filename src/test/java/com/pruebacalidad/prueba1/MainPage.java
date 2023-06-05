@@ -104,6 +104,15 @@ public class MainPage {
     
      @FindBy(css = "h4[class='text-center']")
     public WebElement TarjetasReservasVacias;
+
+    @FindBy(css = "button[routerlink='/entrenadores']")
+    public WebElement btnVerEntrenadores;
+
+    @FindBy(css = "html > body > app-root > app-citasentrenador > div > div:nth-of-type(1) > div > div > div")
+    public WebElement divErikColeEspecialidadDoctor;
+
+    @FindBy(css = "h1")
+    public WebElement h1NoHayEntrenadoresDisponibles;
     
     
     

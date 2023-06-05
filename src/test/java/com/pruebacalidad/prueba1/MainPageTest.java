@@ -327,6 +327,69 @@ public class MainPageTest {
         int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
         Assert.assertEquals(nuevo, ant-1, "Debería de dar el mismo valor en ambos");
     }
+
+    // Marcelo Guillen | 05/06/2023
+    @Test
+    public void VerEntrenadores15A(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        synchronized (this){
+            try{
+                wait(250);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        if(!mainPage.btnVerEntrenadores.isDisplayed()){
+            Assert.fail("No se encontro el botón de entrenador");
+        }
+        mainPage.btnVerEntrenadores.click();
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        if(!mainPage.divErikColeEspecialidadDoctor.isDisplayed()){
+            Assert.fail("No se logró mostrar el entrenador que estaba planeado");
+        }
+    }
+
+    @Test
+    public void verEntrenadores15B(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        synchronized (this){
+            try{
+                wait(250);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        if(mainPage.btnVerEntrenadores.isDisplayed() && mainPage.btnVerEntrenadores.isEnabled()){
+            driver.get("http://localhost:4200/entrenadores");
+        }
+        else{
+            Assert.fail("No aparece el boton de entrenadores donde debería");
+        }
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        if(!mainPage.h1NoHayEntrenadoresDisponibles.isDisplayed()){
+            Assert.fail("Debería aparecer el mensaje en pantalla cuando NO HAY ENTRENADORES");
+        }
+    }
 }
 
 
