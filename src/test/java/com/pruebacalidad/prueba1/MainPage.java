@@ -173,6 +173,134 @@ public class MainPage {
     @FindBy(css = "div[class^='col-md-7']")
     public WebElement Resenas;
 
+    @FindBy(css = "a[ng-reflect-router-link='idDigital']")
+    public WebElement idLink;
+
+    @FindBy(css = "rect[width='222']")
+    public WebElement codigoBarras5;
+
+    @FindBy(css = "button[routerlink='/nutriologos']")
+    public WebElement nutriologosSeccion;
+
+
+    @FindBy(css = "html > body > app-root > app-citasnutriologo > div > div:nth-of-type(1) > div > div > div > div > div:nth-of-type(3) > button")
+    public WebElement nutriologoSeleccionado;
+
+    @FindBy(css = "input[id='weekPicker']")
+    public WebElement inputSemana;
+
+    @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button")
+    public WebElement horarioSeleccionado;
+
+    @FindBy(css = "button[class='btn']")
+    public WebElement btnReservarNutri;
+
+    @FindBy(css = "div[class^='col-md-5'] div[class*='border']")
+    public WebElement EspecialidadNutri;
+
+    @FindBy(css = "div[class^='col-md-7'] div[class*='border']")
+    public WebElement ReseñasNutri;
+
+    @FindBy(css = "a[ng-reflect-router-link='reservas']")
+    public WebElement ReservacionesLink;
+
+    @FindBy(css = "html > body > app-root > app-lista-reservas > div:nth-of-type(2) > div > div > div > div > div > div > div > div:nth-of-type(2) > button")
+    public WebElement cancelarReserva;
+
+    @FindBy(css = "div[class='modal-footer'] button[class$='btn-primary']")
+    public WebElement okCancelacion;
+
+    @FindBy(css = "small[id='estado-html']")
+    public WebElement estadoLabel;
+
+    @FindBy(css = "a[ng-reflect-router-link='exportarDatos']")
+    public WebElement exportarAforo;
+
+    @FindBy(css = "input[id='weekPicker']")
+    public WebElement escogerSemana;
+
+    @FindBy(css = "html > body > app-root > app-exportar-datos > div:nth-of-type(3) > div:nth-of-type(1) > div")
+    public WebElement descargarDataGym;
+
+    @FindBy(css = "html > body > app-root > app-exportar-datos > div:nth-of-type(3) > div:nth-of-type(1) > div > div > div:nth-of-type(2) > button")
+    public WebElement descargarDataGymBtn;
+
+    @FindBy(css = "a[ng-reflect-router-link='lockers']")
+    public WebElement linkCasilleros;
+
+    @FindBy(css = "html > body > app-root > app-lockers > div:nth-of-type(2) > div:nth-of-type(2) > div > div > div > div:nth-of-type(1) > div > div")
+    public WebElement infoCasilleros;
+
+    @FindBy(css = "div[style='margin-bottom: 2%;']")
+    public WebElement infoCasilleroReservado;
+
+    @FindBy(css = "button[class='btn btn-sm']")
+    public WebElement btnSubirComprobante;
+
+    @FindBy(css = "button[ng-reflect-router-link='/estadisticasGimnasio']")
+    public WebElement btnStatsGym;
+
+    @FindBy(css = "input[type='week']")
+    public WebElement inputSemanaGym;
+
+    @FindBy(css = "input[type='week']")
+    public WebElement graficaGymSemanal;
+
+    @FindBy(css = "input[type='date']")
+    public WebElement inputDiaGym;
+
+    @FindBy(css = "canvas[id='linea']")
+    public WebElement graficaGymLineaSemanal;
+
+    @FindBy(css = "button[ng-reflect-router-link='/estadisticas,crossfit']")
+    public WebElement btnStatsCrossfit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
 
 
 

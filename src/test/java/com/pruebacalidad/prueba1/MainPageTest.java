@@ -52,6 +52,9 @@ public class MainPageTest {
         driver.quit();
     }
 
+
+    // Pruebas correspondientes al Sprint 5
+
     @Test
     public void login_1A() {
         mainPage.inputEcomUser.sendKeys("A00495404");
@@ -273,7 +276,7 @@ public class MainPageTest {
         
     }
 
-    // Sprint 2
+    // Pruebas correspondientes al Sprint 6
 
     @Test
     public void Contador3B(){
@@ -328,6 +331,31 @@ public class MainPageTest {
         int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
         Assert.assertEquals(nuevo, ant-1, "Debería de dar el mismo valor en ambos");
     }
+
+
+
+    @Test
+    public void RegistroEntrada5A(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+
+        mainPage.idLink.click();
+        mainPage.codigoBarras5.isDisplayed();
+    }
+
+    @Test
+    public void RegistroEntrada6A(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+
+        mainPage.idLink.click();
+        mainPage.codigoBarras5.isDisplayed();
+    }
+
 
     @Test
     public void cerrarAreaDeportiva12A() {
@@ -510,8 +538,6 @@ public class MainPageTest {
 
     }
 
-
-
     @Test
     public void reservarCitaEntrenador17A() {
         mainPage.inputEcomUser.sendKeys("A00009582");
@@ -564,8 +590,534 @@ public class MainPageTest {
         mainPage.ReservarEntrenador.click();
         mainPage.Especialidad.isDisplayed();
         mainPage.Resenas.isDisplayed();
+    }
+
+    //Sprint 7
+
+    @Test
+    public void citaNutriologo20A() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        driver.get("http://localhost:4200/nutriologos");
+
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.nutriologoSeleccionado.click();
+        mainPage.inputSemana.sendKeys("232023");
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.horarioSeleccionado.click();
+    }
+
+
+    @Test
+    public void citaNutriologo20B() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        driver.get("http://localhost:4200/nutriologos");
+
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.nutriologoSeleccionado.click();
+        mainPage.EspecialidadNutri.isDisplayed();
+        mainPage.ReseñasNutri.isDisplayed();
+    }
+
+    @Test
+    public void cancelarReserva21A() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.ReservacionesLink.click();
+
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.cancelarReserva.click();
+        mainPage.okCancelacion.click();
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        Assert.assertEquals(mainPage.estadoLabel.getText(),"Cancelada");
 
     }
+
+
+    @Test
+    public void cancelarReserva21B() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.ReservacionesLink.click();
+
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        Assert.assertEquals(mainPage.estadoLabel.getText(),"Cancelada");
+
+    }
+
+
+    @Test
+    public void cancelarReservaAutomatica22A() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.ReservacionesLink.click();
+
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        Assert.assertEquals(mainPage.estadoLabel.getText(),"Cancelada");
+
+    }
+
+    @Test
+    public void ExportarEstadisticas23A() {
+        mainPage.inputEcomUser.sendKeys("A00939520");
+        mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.exportarAforo.click();
+
+        mainPage.escogerSemana.isDisplayed();
+
+    }
+
+
+    @Test
+    public void ExportarEstadisticas23B() {
+        mainPage.inputEcomUser.sendKeys("A00939520");
+        mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.exportarAforo.click();
+
+        mainPage.escogerSemana.sendKeys("232023");
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        mainPage.descargarDataGym.isDisplayed();
+    }
+
+
+    @Test
+    public void ExportarEstadisticas23C() {
+        mainPage.inputEcomUser.sendKeys("A00939520");
+        mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.exportarAforo.click();
+
+        mainPage.escogerSemana.sendKeys("232023");
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        mainPage.descargarDataGym.isDisplayed();
+        mainPage.descargarDataGymBtn.click();
+    }
+
+    @Test
+    public void RentaCasillero25A() {
+        mainPage.inputEcomUser.sendKeys("A00126458");
+        mainPage.inputEcomPassword.sendKeys("8R1tVy5ID^");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.linkCasilleros.click();
+        mainPage.infoCasilleros.isDisplayed();
+    }
+
+
+    @Test
+    public void ComprobantePago26A() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.linkCasilleros.click();
+        mainPage.infoCasilleroReservado.isDisplayed();
+        mainPage.btnSubirComprobante.isEnabled();
+    }
+
+    @Test
+    public void ComprobantePago26B() {
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        mainPage.linkCasilleros.click();
+        mainPage.btnSubirComprobante.click();
+    }
+
+    @Test
+    public void GraficaAsistenciasGym27A() {
+        mainPage.inputEcomUser.sendKeys("A00099123");
+        mainPage.inputEcomPassword.sendKeys("!B7OdKtOqG");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        mainPage.btnStatsGym.click();
+        mainPage.inputSemanaGym.sendKeys("232023");
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.graficaGymSemanal.isDisplayed();
+
+    }
+
+    @Test
+    public void GraficaAsistenciasGym27B() {
+        mainPage.inputEcomUser.sendKeys("A00099123");
+        mainPage.inputEcomPassword.sendKeys("!B7OdKtOqG");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        mainPage.btnStatsGym.click();
+        mainPage.inputSemanaGym.isDisplayed();
+    }
+
+
+    @Test
+    public void GraficaLineas28A() {
+        mainPage.inputEcomUser.sendKeys("A00099123");
+        mainPage.inputEcomPassword.sendKeys("!B7OdKtOqG");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        mainPage.btnStatsCrossfit.click();
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.inputDiaGym.sendKeys("05062023");
+        mainPage.graficaGymLineaSemanal.isDisplayed();
+
+    }
+
+    @Test
+    public void GraficaLineasGimnasio29A() {
+        mainPage.inputEcomUser.sendKeys("A00099123");
+        mainPage.inputEcomPassword.sendKeys("!B7OdKtOqG");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        mainPage.btnStatsGym.click();
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.inputDiaGym.sendKeys("05062023");
+        mainPage.graficaGymLineaSemanal.isDisplayed();
+
+    }
+
+
+    @Test
+    public void GraficaBarrasAreas30A() {
+        mainPage.inputEcomUser.sendKeys("A00099123");
+        mainPage.inputEcomPassword.sendKeys("!B7OdKtOqG");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        mainPage.btnStatsCrossfit.click();
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.inputSemanaGym.sendKeys("232023");
+        mainPage.graficaGymSemanal.isDisplayed();
+
+    }
+
+
+    @Test
+    public void GraficaBarrasAreas30B() {
+        mainPage.inputEcomUser.sendKeys("A00099123");
+        mainPage.inputEcomPassword.sendKeys("!B7OdKtOqG");
+        mainPage.buttonLogin.click();
+
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        
+        mainPage.btnStatsCrossfit.click();
+        mainPage.inputSemanaGym.isDisplayed();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
