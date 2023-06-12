@@ -255,6 +255,134 @@ public class MainPage {
     @FindBy(css = "button[ng-reflect-router-link='/estadisticas,crossfit']")
     public WebElement btnStatsCrossfit;
 
+    @FindBy(css = "button[ng-reflect-router-link='/,gimnasio']")
+    public WebElement btnGimnasio;
+
+    @FindBy(css = "button[ng-reflect-router-link='/,gimnasio']")
+    public WebElement btnSGimnasio;
+
+    @FindBy(css = "select[id='segmento']")
+    public WebElement segmento;
+
+    @FindBy(css = "select[id='bloque']")
+    public WebElement bloque;
+
+    @FindBy(css = "select[id='semana']")
+    public WebElement semana;
+
+    @FindBy(css = "canvas[id='graficaPorSegmentoBloque']")
+    public WebElement graficaTendencias;
+
+    @FindBy(css = "input[tabindex='1']")
+    public WebElement tituloInput;
+
+    @FindBy(css = "input[tabindex='2']")
+    public WebElement fechaInicioEInput;
+
+    @FindBy(css = "input[formcontrolname='fechaEventoFin']")
+    public WebElement fechaFinalEInput;
+
+    @FindBy(css = "input[tabindex='4']")
+    public WebElement inputUbicacion;
+
+    @FindBy(css = "button[class='btn btn-sm']")
+    public WebElement imgSelect;
+
+    @FindBy(css = "input[tabindex='6']")
+    public WebElement inputDesc;
+
+    @FindBy(css = "input[formcontrolname='DuracionAnuncioInicio']")
+    public WebElement inputInicioA;
+    @FindBy(css = "input[formcontrolname='DuracionAnuncioFin']")
+    public WebElement inputFinalA;
+
+    @FindBy(css = "html > body > app-root > app-crear-anuncio > div:nth-of-type(2) > div:nth-of-type(4) > div:nth-of-type(1)")
+    public WebElement btnGuardarAnuncio;
+
+    @FindBy(css = "div[class^='card']")
+    public WebElement tablaReservas;
+
+    @FindBy(css = "input[id='btn']")
+    public WebElement seleDia;
+
+    @FindBy(css = "input[tabindex='1']")
+    public WebElement nombreArea;
+
+    @FindBy(css = "input[min='1']")
+    public WebElement aforoArea;
+
+    @FindBy(css = "input[formcontrolname='horaInicio']")
+    public WebElement horaApertura;
+
+    @FindBy(css = "input[formcontrolname='horaFinal']")
+    public WebElement horaCierre;
+
+    @FindBy(css = "input[tabindex='3']")
+    public WebElement ubicacion;
+
+    @FindBy(css = "input[class$='ng-valid']")
+    public WebElement material;
+
+    @FindBy(css = "input[name='imagen']")
+    public WebElement imgArea;
+
+    @FindBy(css = "button[type='submit']")
+    public WebElement btnCrearArea;
+
+    @FindBy(css = "button[id='btn3']")
+    public WebElement calificarAreaBtn;
+
+    @FindBy(css = "select[id='ReviewLimpieza']")
+    public WebElement limpieza;
+
+    @FindBy(css = "select[id='ReviewCalidad']")
+    public WebElement calidad;
+
+    @FindBy(css = "select[id='ReviewAmbiente']")
+    public WebElement ambiente;
+
+    @FindBy(css = "div[class='modal-footer'] button[id='btn']")
+    public WebElement calificarBtn;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
