@@ -95,6 +95,50 @@ public class MainPage {
  
     @FindBy(css = "div[class='modal-body']")
     public WebElement modalReserva;
+
+
+    @FindBy(css = "button[routerlink='/entrenadores']")
+    public WebElement buttonReservar;
+
+
+
+    @FindBy(css = "html > body > app-root > app-inicio-admin > div:nth-of-type(3) > div > div > div > div:nth-of-type(5) > button")
+    public WebElement buttonEstadSticas;
+
+
+    @FindBy(css = "input[id='nuevoAforo']")
+    public WebElement inputNuevoAforo;
+
+    @FindBy(css = "div[class^='col-md-6'] input[id='start']")
+    public WebElement inputStart;
+
+    @FindBy(css = "div[class^='col-md-5'] input[id='start']")
+    public WebElement inputStart2;
+
+    @FindBy(css = "input[class^='mt-4']")
+    public WebElement buttonRazon;
+
+    @FindBy(css= "button[class*='btn-success']")
+    public WebElement guardarAforo;
+
+
+
+    @FindBy(css = "button[routerlink='/nutriologos']")
+    public WebElement buttonNutriologo;
+
+    @FindBy(css = "html > body > app-root > app-citasnutriologo > div > div:nth-of-type(1) > div > div > div > div > div:nth-of-type(3) > button")
+    public WebElement buttonReservarNutriologo;
+
+    @FindBy(css = "div[class*='border-gray']")
+    public WebElement calendarioNutriologo;
+
+    @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button")
+    public WebElement buttonHorarioNutri;
+
+
+
+
+
     
     @FindBy(css = "a[ng-reflect-router-link='reservas']")
     public WebElement linkReservas;
@@ -422,7 +466,11 @@ public class MainPage {
     
     
     
-    
+
+
+
+
+
     
 
 

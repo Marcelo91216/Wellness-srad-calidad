@@ -332,6 +332,83 @@ public class MainPageTest {
         Assert.assertEquals(nuevo, ant-1, "Debería de dar el mismo valor en ambos");
     }
 
+    @Test
+    public void ajusteAreaDeportiva14A(){
+        mainPage.inputEcomUser.sendKeys("A00021564");
+        mainPage.inputEcomPassword.sendKeys("D&a#1Wqv^i");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonEstadSticas.click();
+
+    }
+
+    @Test
+    public void ajusteAreaDeportiva14B(){
+        mainPage.inputEcomUser.sendKeys("A00021564");
+        mainPage.inputEcomPassword.sendKeys("D&a#1Wqv^i");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonEstadSticas.click();
+
+        mainPage.inputNuevoAforo.sendKeys("190");
+        mainPage.inputStart.sendKeys("17/05/23");
+        mainPage.inputStart2.sendKeys("20/05/23");
+        mainPage.buttonRazon.sendKeys("Mantenimiento");
+
+        mainPage.guardarAforo.click();
+    }
+
+    @Test
+    public void verEntrenadores15A(){
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonReservar.click();
+
+    }
+
+
+
+    @Test
+    public void verNutriologosDisponibles18A(){
+        mainPage.inputEcomUser.sendKeys("A00167441");
+        mainPage.inputEcomPassword.sendKeys("b+7CEtti8u");
+        mainPage.buttonLogin.click();
+
+        mainPage.buttonNutriologo.click();
+        mainPage.buttonReservarNutriologo.click();
+
+
+    }
+
+    @Test
+    public void visualizarDisponibilidadNutriologo19A(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        mainPage.buttonNutriologo.click();
+        mainPage.buttonReservarNutriologo.click();
+
+        // calendar is display ?
+        mainPage.calendarioNutriologo.isDisplayed();
+    }
+
+    @Test
+    public void visualizarDisponibilidadNutriologo19B(){
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.buttonLogin.click();
+        mainPage.buttonNutriologo.click();
+        mainPage.buttonReservarNutriologo.click();
+
+        // Boton esta enable?
+
+        if (mainPage.buttonHorarioNutri.isEnabled()) {
+            Assert.fail("El horario no esta disponible");
+        }
+    }
+
 
 
     @Test
