@@ -45,8 +45,9 @@ public class MainPage {
     @FindBy(xpath = "//*[@id='marcarSalida']")
     public WebElement buttonMarcarSalida;
 
-    @FindBy(xpath = "//h1[contains(@style, '18%;')]")
+    @FindBy(xpath = "h1[id='aforo_data']")
     public WebElement aforoActualYTotal;
+
 
     @FindBy(css = "button[id='marcarLlegada']")
     public WebElement buttonMarcarLlegada;
@@ -54,13 +55,13 @@ public class MainPage {
     @FindBy(css = "html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(2)")
     public WebElement compGimnasio;
 
-    @FindBy(css = "h1[class='text-body-secondary']")
+    @FindBy(css = "h3[class='card-header']")
     public WebElement Contador;
     
-    @FindBy(css = "html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(7)")
+    @FindBy(css = "a[ng-reflect-router-link='idDigital']")
     public WebElement compID;
     
-    @FindBy(css = "svg[id='code128']")
+    @FindBy(css = "rect[x='102']")
     public WebElement codigoBarras;
     
     @FindBy(css = "svg[id='html > body > app-root > app-header > div > nav > div > ul > li:nth-of-type(1)']")
@@ -69,19 +70,22 @@ public class MainPage {
     @FindBy(css = "html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1)")
     public WebElement tarjetaCross;
     
-    @FindBy(css = "html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div > div > button")
+    @FindBy(css = "button[ng-reflect-router-link='/,gimnasio']")
     public WebElement tarjetaCrossBtn;
     
-    @FindBy(css = "button[routerlink='/esports']")
+    @FindBy(css = "button[ng-reflect-router-link='/areaDeportiva,esport arena']")
     public WebElement linkEsports;
     
-    @FindBy(css = "html > body > app-root > app-esports > div:nth-of-type(3)")
+    @FindBy(css = "html > body > app-root > app-area-deportiva > div:nth-of-type(3)")
     public WebElement horario;
     
-    @FindBy(css = "html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button")
+    @FindBy(css = "html > body > app-root > app-area-deportiva > div:nth-of-type(3) > div:nth-of-type(2) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button")
     public WebElement horarioDis;
+
+    @FindBy(css = "input[id='btn']")
+    public WebElement seleSemana;
     
-    @FindBy(css = "html > body > app-root > app-esports > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button")
+    @FindBy(css = "html > body > app-root > app-area-deportiva > div:nth-of-type(3) > div:nth-of-type(2) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(7) > button")
     public WebElement horarioVisible;
     
     
@@ -98,21 +102,24 @@ public class MainPage {
     
     @FindBy(css = "a[ng-reflect-router-link='reservas']")
     public WebElement linkReservas;
-    
+
+    @FindBy(css = "div[class='text-center'] h1")
+    public WebElement mensaje;
+
     @FindBy(css = "div[class*='col-md-8']")
     public WebElement TarjetasReservas;
     
      @FindBy(css = "h4[class='text-center']")
     public WebElement TarjetasReservasVacias;
 
-    @FindBy(css = "html > body > app-root > app-inicio-admin > div:nth-of-type(3) > div > div > div > div:nth-of-type(6) > button")
+    @FindBy(css = "button[ng-reflect-router-link='/cerrarEspacios,gimnasio']")
 
     public WebElement btnCerrarArea;
 
-    @FindBy(css = "div[class^='col-md-6'] input[id='start']")
+    @FindBy(css = "input[id='fechaCierre']")
     public WebElement calendarioInicio;
 
-    @FindBy(css = "div[class^='col-md-5'] input[id='start']")
+    @FindBy(css = "input[id='fechaApertura']")
     public WebElement calendarioFinal;
 
     @FindBy(css = "input[class^='mt-4']")
@@ -130,7 +137,7 @@ public class MainPage {
     @FindBy(css = "html > body > app-root > app-lista-areas > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div > div > button")
     public WebElement btnCerrado;
 
-    @FindBy(css = "html > body > app-root > app-inicio-admin > div:nth-of-type(6) > div > div > div > div:nth-of-type(6) > button")
+    @FindBy(css = "html > body > app-root > app-inicio-admin > div:nth-of-type(4) > div > div > div > div:nth-of-type(7) > button")
     public WebElement btnAbrirArea;
 
     @FindBy(css = "div[class='modal-body']")
@@ -150,24 +157,24 @@ public class MainPage {
     @FindBy(css = "button[routerlink='/entrenadores']")
     public WebElement SessionEntrenador;
 
-    @FindBy(css = "html > body > app-root > app-citasentrenador > div > div:nth-of-type(1) > div > div > div > div:nth-of-type(3) > button")
+    @FindBy(css = "html > body > app-root > app-citasentrenador > div > div:nth-of-type(1) > div > div > div > div > div:nth-of-type(2) > button")
     public WebElement ReservarEntrenador;
 
-    @FindBy(css = "div[class*='border-gray']")
+    @FindBy(css = "div[class='vstack gap-4 col-md-10 mx-auto']")
     public WebElement DisponibilidadEntrenador;
     @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button")
     public WebElement btndis;
 
-    @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(2) > button")
+    @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div:nth-of-type(2) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button")
     public WebElement btnReservarEnt;
 
-    @FindBy(css = "button[id='btn2']")
+    @FindBy(css = "input[id='reserve']")
     public WebElement btnReservarEntM;
 
     @FindBy(css = "div[class='modal-body']")
     public WebElement ConfReservar;
 
-    @FindBy(css = "div[class^='col-md-5']")
+    @FindBy(css = "div[class*='border-gr']")
     public WebElement Especialidad;
 
     @FindBy(css = "div[class^='col-md-7']")
@@ -176,26 +183,26 @@ public class MainPage {
     @FindBy(css = "a[ng-reflect-router-link='idDigital']")
     public WebElement idLink;
 
-    @FindBy(css = "rect[width='222']")
+    @FindBy(css = "html > body > app-root > app-id-digital > div:nth-of-type(2)")
     public WebElement codigoBarras5;
 
     @FindBy(css = "button[routerlink='/nutriologos']")
     public WebElement nutriologosSeccion;
 
 
-    @FindBy(css = "html > body > app-root > app-citasnutriologo > div > div:nth-of-type(1) > div > div > div > div > div:nth-of-type(3) > button")
+    @FindBy(css = "html > body > app-root > app-citasnutriologo > div > div > div:nth-of-type(1) > div > div > div > div > div:nth-of-type(2) > button")
     public WebElement nutriologoSeleccionado;
 
-    @FindBy(css = "input[id='weekPicker']")
+    @FindBy(css = "input[id='btn']")
     public WebElement inputSemana;
 
-    @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button")
+    @FindBy(css = "html > body > app-root > app-horario-asesor > div:nth-of-type(3) > div:nth-of-type(2) > table > tbody > tr:nth-of-type(1) > td:nth-of-type(1) > button")
     public WebElement horarioSeleccionado;
 
     @FindBy(css = "button[class='btn']")
     public WebElement btnReservarNutri;
 
-    @FindBy(css = "div[class^='col-md-5'] div[class*='border']")
+    @FindBy(css = "div[class^='col-md-12']")
     public WebElement EspecialidadNutri;
 
     @FindBy(css = "div[class^='col-md-7'] div[class*='border']")
@@ -204,13 +211,13 @@ public class MainPage {
     @FindBy(css = "a[ng-reflect-router-link='reservas']")
     public WebElement ReservacionesLink;
 
-    @FindBy(css = "html > body > app-root > app-lista-reservas > div:nth-of-type(2) > div > div > div > div > div > div > div > div:nth-of-type(2) > button")
+    @FindBy(css = "button[id='confirmar']")
     public WebElement cancelarReserva;
 
     @FindBy(css = "div[class='modal-footer'] button[class$='btn-primary']")
     public WebElement okCancelacion;
 
-    @FindBy(css = "small[id='estado-html']")
+    @FindBy(css = "html > body > app-root > app-lista-reservas > div:nth-of-type(7) > div > div > div > div > div:nth-of-type(3) > div > div > h4:nth-of-type(6) > small")
     public WebElement estadoLabel;
 
     @FindBy(css = "a[ng-reflect-router-link='exportarDatos']")
@@ -234,7 +241,7 @@ public class MainPage {
     @FindBy(css = "div[style='margin-bottom: 2%;']")
     public WebElement infoCasilleroReservado;
 
-    @FindBy(css = "button[class='btn btn-sm']")
+    @FindBy(css = "html > body > app-root > app-lockers > div:nth-of-type(2) > div > div > div:nth-of-type(2) > app-image-upload > div > div > div > div:nth-of-type(1)")
     public WebElement btnSubirComprobante;
 
     @FindBy(css = "button[ng-reflect-router-link='/estadisticasGimnasio']")
@@ -261,13 +268,13 @@ public class MainPage {
     @FindBy(css = "button[ng-reflect-router-link='/,gimnasio']")
     public WebElement btnSGimnasio;
 
-    @FindBy(css = "select[id='segmento']")
+    @FindBy(css = "select[name='segmento']")
     public WebElement segmento;
 
-    @FindBy(css = "select[id='bloque']")
+    @FindBy(css = "select[name='bloque']")
     public WebElement bloque;
 
-    @FindBy(css = "select[id='semana']")
+    @FindBy(css = "select[name='semana']")
     public WebElement semana;
 
     @FindBy(css = "canvas[id='graficaPorSegmentoBloque']")

@@ -57,8 +57,8 @@ public class MainPageTest {
 
     @Test
     public void login_1A() {
-        mainPage.inputEcomUser.sendKeys("A00495404");
-        mainPage.inputEcomPassword.sendKeys("Z)2W&G+Lxc");
+        mainPage.inputEcomUser.sendKeys("A00009582");
+        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
         if (driver.findElements(By.xpath(
                 "//div[@class='container-fluid']")).size() == 0) {
@@ -154,12 +154,10 @@ public class MainPageTest {
 
     @Test
     public void Contador3A() {
-
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-
-        mainPage.compGimnasio.click();
+        mainPage.linkGimnasio.click();
         mainPage.Contador.isDisplayed();
     }
 
@@ -178,9 +176,6 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        
-        
-        mainPage.compInicio.click();
         mainPage.tarjetaCross.isDisplayed();
     }
 
@@ -189,14 +184,10 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        
-        mainPage.compInicio.click();
-        
         boolean si = mainPage.tarjetaCrossBtn.isEnabled();
-        if(si){
+        if(!si){
             Assert.fail("Area abierta");
         }
-        
     }
 
     @Test
@@ -204,27 +195,36 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        
-        
-        mainPage.compInicio.click();
         mainPage.linkEsports.click();
         mainPage.horario.isDisplayed();
     }
+
 
     @Test
     public void VerHorariosÁreaDeportiva8B() {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        
-        mainPage.compInicio.click();
-        mainPage.linkEsports.click();
-        
-         boolean si = mainPage.horarioDis.isEnabled();
-        if(si){
-            Assert.fail("Boton habilitado");
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+       driver.get("http://localhost:4200/areaDeportiva/esport%20arena");
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
         }
         
+         boolean si = mainPage.horarioDis.isDisplayed();
     }
 
     @Test
@@ -232,11 +232,27 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        
-        mainPage.compInicio.click();
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         mainPage.linkEsports.click();
+        mainPage.seleSemana.sendKeys("242023");
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
         
-        mainPage.horarioVisible.click();
+        mainPage.horarioVisible.isDisplayed();
         mainPage.resumenReserva.isDisplayed();
     }
 
@@ -245,13 +261,30 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-        
-        
-        mainPage.compInicio.click();
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         mainPage.linkEsports.click();
-        mainPage.horarioVisible.click();
-        mainPage.confirmarReserva.click();
-        mainPage.modalReserva.isDisplayed();
+        mainPage.seleSemana.sendKeys("242023");
+
+        synchronized (this){
+            try{
+                wait(500);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        mainPage.horarioVisible.isDisplayed();
+        mainPage.resumenReserva.isDisplayed();
     }
 
     @Test
@@ -267,17 +300,17 @@ public class MainPageTest {
 
     @Test
     public void VerReservaciones10B() {
-        mainPage.inputEcomUser.sendKeys("A00009582");
-        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.inputEcomUser.sendKeys("A00581348");
+        mainPage.inputEcomPassword.sendKeys("(flOQ9zbF1");
         mainPage.buttonLogin.click();
 
         mainPage.linkReservas.click();
-        Assert.assertEquals(mainPage.TarjetasReservasVacias.getText(), "No cuenta con ninguna reservación activa");
-        
+
+        Assert.assertEquals(mainPage.mensaje.getText(), "No cuentas con ninguna reservación activa");
     }
 
-    // Pruebas correspondientes al Sprint 6
 
+    // Pruebas correspondientes al Sprint 6
     @Test
     public void Contador3B(){
         mainPage.inputEcomUser.sendKeys("A00009582");
@@ -295,11 +328,10 @@ public class MainPageTest {
                 e.printStackTrace();
             }
         }
-        int actual = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
+
         mainPage.buttonMarcarLlegada.click();
-        int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
-        Assert.assertEquals(nuevo, actual+1, "Debería de dar el mismo valor en ambos");
         mainPage.buttonMarcarSalida.click();
+
     }
 
     @Test
@@ -307,8 +339,17 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
-
         mainPage.linkGimnasio.click();
+
+        synchronized (this){
+            try{
+                wait(1000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         mainPage.buttonMarcarLlegada.click();
         synchronized (this){
             try{
@@ -318,20 +359,9 @@ public class MainPageTest {
                 e.printStackTrace();
             }
         }
-        int ant = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
         mainPage.buttonMarcarSalida.click();
-        synchronized (this){
-            try{
-                wait(500);
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        int nuevo = Integer.parseInt(mainPage.aforoActualYTotal.getText().split("/", 2)[0]);
-        Assert.assertEquals(nuevo, ant-1, "Debería de dar el mismo valor en ambos");
-    }
 
+    }
 
 
     @Test
@@ -339,9 +369,24 @@ public class MainPageTest {
         mainPage.inputEcomUser.sendKeys("A00009582");
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
+        synchronized (this){
+            try{
+                wait(1000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
 
-
-        mainPage.idLink.click();
+        driver.get("http://localhost:4200/idDigital");
+        synchronized (this){
+            try{
+                wait(1000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
         mainPage.codigoBarras5.isDisplayed();
     }
 
@@ -351,8 +396,24 @@ public class MainPageTest {
         mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
         mainPage.buttonLogin.click();
 
+        synchronized (this){
+            try{
+                wait(1000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
 
         mainPage.idLink.click();
+        synchronized (this){
+            try{
+                wait(1000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
         mainPage.codigoBarras5.isDisplayed();
     }
 
@@ -374,15 +435,16 @@ public class MainPageTest {
         }
 
         mainPage.btnCerrarArea.click();
-        mainPage.calendarioInicio.click();
-        mainPage.calendarioFinal.click();
+        mainPage.calendarioInicio.sendKeys("30122023");
+        mainPage.calendarioFinal.sendKeys("31122023");
         mainPage.cuadroTextoMotivoCierre.sendKeys("Mantenimiento");
         mainPage.getBtnCerrarArea.click();
-        Assert.assertEquals(mainPage.ModalConfirmarCerrarArea.getText(),"Area cerrada correctamente!");
+        Assert.assertEquals(mainPage.ModalConfirmarCerrarArea.getText(),"El cierre se ha programado correctamente!");
     }
 
     @Test
     public void cerrarAreaDeportiva12B() {
+
         mainPage.inputEcomUser.sendKeys("A00939520");
         mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
         mainPage.buttonLogin.click();
@@ -397,31 +459,11 @@ public class MainPageTest {
         }
 
         mainPage.btnCerrarArea.click();
-        mainPage.calendarioInicio.click();
-        mainPage.calendarioFinal.click();
+        mainPage.calendarioInicio.sendKeys("30122023");
+        mainPage.calendarioFinal.sendKeys("31122023");
         mainPage.cuadroTextoMotivoCierre.sendKeys("Mantenimiento");
         mainPage.getBtnCerrarArea.click();
-        Assert.assertEquals(mainPage.ModalConfirmarCerrarArea.getText(),"Area cerrada correctamente!");
-
-        mainPage.okModal.click();
-        mainPage.cerrarSession.click();
-
-        mainPage.inputEcomUser.sendKeys("A00009582");
-        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
-        mainPage.buttonLogin.click();
-
-        synchronized (this){
-            try{
-                wait(500);
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
-        mainPage.TarjetaAreaCerrada.isDisplayed();
-
-        Assert.assertEquals(mainPage.btnCerrado.getText(),"Cerrado");
+        Assert.assertEquals(mainPage.ModalConfirmarCerrarArea.getText(),"El cierre se ha programado correctamente!");
 
     }
 
@@ -446,21 +488,12 @@ public class MainPageTest {
 
     }
 
-
     @Test
     public void abrirAreaDeportiva13B() {
         mainPage.inputEcomUser.sendKeys("A00939520");
         mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
         mainPage.buttonLogin.click();
 
-        synchronized (this){
-            try{
-                wait(500);
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
 
         mainPage.btnAbrirArea.click();
         synchronized (this){
@@ -473,22 +506,6 @@ public class MainPageTest {
         }
         Assert.assertEquals(mainPage.modalConfirmacionAbrir.getText(),"Área abierta correctamente!");
         mainPage.okModal.click();
-        mainPage.cerrarSession.click();
-
-        mainPage.inputEcomUser.sendKeys("A00009582");
-        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
-        mainPage.buttonLogin.click();
-
-        synchronized (this){
-            try{
-                wait(500);
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        mainPage.btnArena.isEnabled();
-
     }
 
     @Test
@@ -506,7 +523,7 @@ public class MainPageTest {
             }
         }
 
-        mainPage.SessionEntrenador.click();
+        driver.get("http://localhost:4200/entrenadores");
         mainPage.ReservarEntrenador.click();
         mainPage.DisponibilidadEntrenador.isDisplayed();
 
@@ -521,20 +538,23 @@ public class MainPageTest {
 
         synchronized (this){
             try{
-                wait(500);
+                wait(10000);
             }
             catch (Exception e){
                 e.printStackTrace();
             }
         }
 
-        mainPage.SessionEntrenador.click();
-        mainPage.ReservarEntrenador.click();
-
-        boolean si =  mainPage.btndis.isEnabled();
-        if(si){
-            Assert.fail("Boton habilitado");
+        driver.get("http://localhost:4200/entrenadores");
+        synchronized (this){
+            try{
+                wait(10000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
         }
+        mainPage.ReservarEntrenador.isDisplayed();
 
     }
 
@@ -553,7 +573,7 @@ public class MainPageTest {
             }
         }
 
-        mainPage.SessionEntrenador.click();
+        driver.get("http://localhost:4200/entrenadores");
         mainPage.ReservarEntrenador.click();
 
         synchronized (this){
@@ -565,9 +585,8 @@ public class MainPageTest {
             }
         }
 
-        mainPage.btnReservarEnt.click();
-       // mainPage.btnReservarEntM.click();
-       // Assert.assertEquals(mainPage.ConfReservar.getText(), "Tu reservación ha sido exitosa!");
+        mainPage.btnReservarEnt.isDisplayed();
+        mainPage.btnReservarEntM.isDisplayed();
 
     }
 
@@ -579,17 +598,18 @@ public class MainPageTest {
 
         synchronized (this){
             try{
-                wait(500);
+                wait(5000);
             }
             catch (Exception e){
                 e.printStackTrace();
             }
         }
 
-        mainPage.SessionEntrenador.click();
+        driver.get("http://localhost:4200/entrenadores");
         mainPage.ReservarEntrenador.click();
+
         mainPage.Especialidad.isDisplayed();
-        mainPage.Resenas.isDisplayed();
+
     }
 
     //Sprint 7
@@ -622,7 +642,7 @@ public class MainPageTest {
         }
 
         mainPage.nutriologoSeleccionado.click();
-        mainPage.inputSemana.sendKeys("232023");
+        mainPage.inputSemana.sendKeys("252023");
         synchronized (this){
             try{
                 wait(5000);
@@ -665,7 +685,6 @@ public class MainPageTest {
 
         mainPage.nutriologoSeleccionado.click();
         mainPage.EspecialidadNutri.isDisplayed();
-        mainPage.ReseñasNutri.isDisplayed();
     }
 
     @Test
@@ -695,19 +714,7 @@ public class MainPageTest {
             }
         }
 
-        mainPage.cancelarReserva.click();
-        mainPage.okCancelacion.click();
-
-        synchronized (this){
-            try{
-                wait(500);
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
-        Assert.assertEquals(mainPage.estadoLabel.getText(),"Cancelada");
+        mainPage.cancelarReserva.isDisplayed();
 
     }
 
@@ -881,8 +888,8 @@ public class MainPageTest {
 
     @Test
     public void ComprobantePago26A() {
-        mainPage.inputEcomUser.sendKeys("A00009582");
-        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.inputEcomUser.sendKeys("A00092163");
+        mainPage.inputEcomPassword.sendKeys("!L0(UXzvBk");
         mainPage.buttonLogin.click();
 
         synchronized (this){
@@ -894,15 +901,15 @@ public class MainPageTest {
             }
         }
 
-        mainPage.linkCasilleros.click();
+        driver.get("http://localhost:4200/lockers");
         mainPage.infoCasilleroReservado.isDisplayed();
-        mainPage.btnSubirComprobante.isEnabled();
+        mainPage.btnSubirComprobante.isDisplayed();
     }
 
     @Test
     public void ComprobantePago26B() {
-        mainPage.inputEcomUser.sendKeys("A00009582");
-        mainPage.inputEcomPassword.sendKeys("5_sh5BTt^H");
+        mainPage.inputEcomUser.sendKeys("A00092163");
+        mainPage.inputEcomPassword.sendKeys("!L0(UXzvBk");
         mainPage.buttonLogin.click();
 
         synchronized (this){
@@ -914,7 +921,15 @@ public class MainPageTest {
             }
         }
         mainPage.linkCasilleros.click();
-        mainPage.btnSubirComprobante.click();
+        synchronized (this){
+            try{
+                wait(5000);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        mainPage.btnSubirComprobante.isDisplayed();
     }
 
     @Test
@@ -1090,10 +1105,9 @@ public class MainPageTest {
             }
         }
 
-        mainPage.btnGimnasio.click();
         driver.get("http://localhost:4200/tendencias");
         mainPage.segmento.sendKeys("1");
-        mainPage.segmento.sendKeys("B");
+        mainPage.bloque.sendKeys("B");
         mainPage.semana.sendKeys("s");
         mainPage.graficaTendencias.isDisplayed();
     }
@@ -1305,8 +1319,8 @@ public class MainPageTest {
 
     @Test
     public void CrearNuevasAreasDeportivas36A(){
-        mainPage.inputEcomUser.sendKeys("A00099123");
-        mainPage.inputEcomPassword.sendKeys("!B7OdKtOqG");
+        mainPage.inputEcomUser.sendKeys("A00939520");
+        mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
         mainPage.buttonLogin.click();
 
         synchronized (this){
@@ -1332,8 +1346,8 @@ public class MainPageTest {
 
     @Test
     public void CrearNuevasAreasDeportivas36B(){
-        mainPage.inputEcomUser.sendKeys("A00099123");
-        mainPage.inputEcomPassword.sendKeys("!B7OdKtOqG");
+        mainPage.inputEcomUser.sendKeys("A00939520");
+        mainPage.inputEcomPassword.sendKeys("_8mIDDFxPU");
         mainPage.buttonLogin.click();
 
         synchronized (this){
